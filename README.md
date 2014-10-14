@@ -294,6 +294,23 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 How many counts does the firmware loop count down from? Using the delay you just measured and the number of counts, calculate the amount of time each iteration of the delay loop consumes.
 
 ######Answer
+Here is the given code for the count down:
+```asm
+	; This loop creates a nice delay for the reset low pulse
+	bic.b	#LCD1202_RESET_PIN, &P2OUT
+	mov		#0FFFFh, R12
+delayNokiaResetLow:
+	dec		R12
+	jne		delayNokiaResetLow
+
+	; This loop creates a nice delay for the reset high pulse
+	bis.b	#LCD1202_RESET_PIN, &P2OUT
+	mov		#0FFFFh, R12
+delayNokiaResetHigh:
+	dec		R12
+	jne		delayNokiaResetHigh
+```
+It looks like it counts down from 0xFFFF
 
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/bitblock.bmp)
