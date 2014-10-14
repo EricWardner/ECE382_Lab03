@@ -230,28 +230,28 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 </thead>
 <tbody>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">66</td>
+<td align="center" colspan="1">#NOKIA_DATA</td>
+<td align="center" colspan="1">0xE7</td>
+<td align="center" colspan="1">Stores 8 pixel bar with 2 pixel hole to be written to screen</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">276</td>
+<td align="center" colspan="1">#NOKIA_CMD</td>
+<td align="center" colspan="1">0xB0, whatever the row # is</td>
+<td align="center" colspan="1">sets the row #</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">288</td>
+<td align="center" colspan="1">#NOKIA_CMD</td>
+<td align="center" colspan="1">0x10, column #</td>
+<td align="center" colspan="1">sets column mumber</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">294</td>
+<td align="center" colspan="1">#NOKIA_CMD</td>
+<td align="center" colspan="1">0x00</td>
+<td align="center" colspan="1">Write a command, setup call to make a copy of the top of stack</td>
 </tr>
 </tbody>
 </table>
@@ -266,24 +266,24 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 </thead>
 <tbody>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">66</td>
+<td align="center" colspan="1">Data</td>
+<td align="center" colspan="1">11100111</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">276</td>
+<td align="center" colspan="1">CMD</td>
+<td align="center" colspan="1">10110001</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">288</td>
+<td align="center" colspan="1">CMD</td>
+<td align="center" colspan="1">00010000</td>
 </tr>
 <tr>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
-<td align="center" colspan="1"></td>
+<td align="center" colspan="1">294</td>
+<td align="center" colspan="1">CMD</td>
+<td align="center" colspan="1">00000001</td>
 </tr>
 </tbody>
 </table>
