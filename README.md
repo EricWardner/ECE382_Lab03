@@ -289,7 +289,25 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 </tr>
 </tbody>
 </table>
-###How many Counts?
+
+####Waveforms
+The following waveforms were taken from the given code.
+
+######Line 66
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114007.jpg)
+
+######Line 276
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114046.jpg)
+
+######Line 288
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114119.jpg)
+
+######Line 294
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114152.jpg)
+
+######Reset
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114217.jpg)
+
 ######Question
 How many counts does the firmware loop count down from? Using the delay you just measured and the number of counts, calculate the amount of time each iteration of the delay loop consumes.
 
@@ -312,23 +330,6 @@ delayNokiaResetHigh:
 ```
 It looks like it counts down from 0xFFFF
 
-####Waveforms
-The following waveforms were taken from the given code.
-
-######Line 66
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114007.jpg)
-
-######Line 276
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114046.jpg)
-
-######Line 288
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114119.jpg)
-
-######Line 294
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114152.jpg)
-
-######Reset
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114217.jpg)
 
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/bitblock.bmp)
