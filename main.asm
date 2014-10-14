@@ -61,9 +61,49 @@ main:
 	push	R11
 	push	R10
 
+	jmp		while0;
+
 while1:
-	bit.b	#8, &P2IN					; bit 3 of P1IN set?
-	jnz 	while1						; Yes, branch back and wait
+;	bit.b	#8, &P2IN					; bit 3 of P1IN set?
+;	jnz 	while1						; Yes, branch back and wait
+
+	bit.b	#1,	&P2IN
+	jz		right
+	bit.b	#2,	&P2IN
+	jz		left
+	bit.b	#4,	&P2IN
+	jz		up
+	bit.b	#8,	&P2IN
+	jz		down
+
+	jmp		while1
+
+right:
+	add		#1,	R11
+	call	#clearDisplay
+	jmp		while0
+
+left:
+	sub		#1,	R11
+	call	#clearDisplay
+	jmp		while0
+
+up:
+	sub.b	#1,	R10
+	call	#clearDisplay
+	jmp		while0
+
+down:
+	inc		R10
+	push	r10
+	push	r11
+	call	#clearDisplay
+	pop		r11
+	pop		r10
+	push	r8
+	push	r11
+	push	r10
+	jmp		while0
 
 while0:
 
