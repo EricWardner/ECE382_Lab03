@@ -298,7 +298,7 @@ How many counts does the firmware loop count down from? Using the delay you just
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/bitblock.bmp)
 
-###Functionality Struggles
+###Functionality Struggles/Debugging
 #####B-Functionailty
 I began with the given code that bade the lines appear on the screen. Looking at the main I saw, with the given comments, that the E7 meant an 8 pixel block with a 2 pixel hole in the middle. This makes sense as 0xE7 in binary is 11100111. Following this logic I thought 0xFF might mean a full 8 pixel block because is binary it is 11111111. I built and tested and a full 8 pixel block appeared! Small success!
 ```asm
@@ -321,7 +321,7 @@ In the main function I saw the inc r10 and inc r11 commands. Knowing those regis
 Sorry I dont have code, it is in my commit history but I forgot to add it to the readme before I went on to A-functionality. 
 
 #####A-Functionality
-
+Achieving A functionality was a bit of a challenge and took a lot of trial error and debugging. I thought it would be simple. I though that in the while 1 loop, instead of checking for the aux button to be pressed like what was given, I would just check for the direction buttons to be pressed and jump based on that. This is the idea I went with. It first took me a while to figure out what number corresponded with what button. I figured this out by trial and error. Then after implementing the proper increments and decrements and matching them up with the right button presses and clearing the display at the right time something was still screwey. I mused that it had to do with registers getting smashed, so I pushed and pop'd everything and it seemed to kind of sort of work!! Some points maybe?
 ```asm
 	mov.w	#20, R10
 	mov.w	#46, R11
