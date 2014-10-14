@@ -307,6 +307,7 @@ The following waveforms were taken from the given code.
 
 ######Reset
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114217.jpg)
+Although it can't be seen entirely, the time the reset stays high is about 12 microseconds.
 
 ######Question
 How many counts does the firmware loop count down from? Using the delay you just measured and the number of counts, calculate the amount of time each iteration of the delay loop consumes.
@@ -329,7 +330,7 @@ delayNokiaResetHigh:
 	jne		delayNokiaResetHigh
 ```
 It looks like it counts down from 0xFFFF
-
+So if the reset took about 12 microseconds total than each iteration took about 12 microseconds/0xFFFF or 0.18 ns.
 
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/bitblock.bmp)
