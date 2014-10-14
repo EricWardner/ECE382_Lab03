@@ -53,26 +53,36 @@ main:
 	clr		R10							; used to move the cursor around
 	clr		R11
 
+	mov.w	#20, R10
+	mov.w	#46, R11
+	mov.w	#8,	r8
+
 while1:
 	bit.b	#8, &P2IN					; bit 3 of P1IN set?
 	jnz 	while1						; Yes, branch back and wait
 
 while0:
+
 	bit.b	#8, &P2IN					; bit 3 of P1IN clear?
 	jz		while0						; Yes, branch back and wait
 
-	mov		#NOKIA_DATA, R12			; For testing just draw an 8 pixel high
-	mov		#0xE7, R13					; beam with a 2 pixel hole in the center
-	call	#writeNokiaByte
-
-	inc		R10							; since rows are 8 times bigger than columns
+;	inc		R10							; since rows are 8 times bigger than columns
 	and.w	#0x07, R10					; wrap over the row mod 8
 	inc		R11							; just let the columm overflow after 92 buttons
 	mov		R10, R12					; increment the row
 	mov		R11, R13					; and column of the next beam
 	call	#setAddress					; we draw
 
-	jmp		while1
+	mov		#NOKIA_DATA, R12			; For testing just draw an 8 pixel high
+;	mov		#0xE7, R13					; beam with a 2 pixel hole in the center
+	mov		#0xFF, R13
+	call	#writeNokiaByte
+
+	dec.b	R8
+	tst		r8
+	jz		while1
+	jmp		while0
+;	jmp		while1
 
 ;-------------------------------------------------------------------------------
 ;	Name:		initNokia		68(rows)x92(columns)
