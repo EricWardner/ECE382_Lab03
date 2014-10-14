@@ -289,3 +289,6 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 </tr>
 </tbody>
 </table>
+
+###XOR picture
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/bitblock.bmp)
