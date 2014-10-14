@@ -422,3 +422,4 @@ while0:
 	jmp		while1
 ;	jmp		while1
 ```
+One of the big issues I had was I didn't really understand all that the given program was doing so I feel like I made a hackjob of the functionality. There has to be a better way of checking if buttons are pressed and redisplaying the image in a new place. 
