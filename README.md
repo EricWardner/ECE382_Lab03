@@ -307,4 +307,12 @@ I began with the given code that bade the lines appear on the screen. Looking at
 	mov		#0xFF, R13
 	call	#writeNokiaByte
 ```
-Next I attemptedto make the 8 pixel block appear in the middle of the screen
+Next I attempted to make the 8 pixel block appear in the middle of the screen
+To accomplish this I inspected the set address function and realized that it got its location from r10 and r11. I replaced the initial clr r10 and clr r11 commands with a mov and knowing the display was 72 rows (pixel) x 96 columns (pixel) i set r10 and r11 to 36 and 48 respectively. When tested, I got a block in a different plce but it didnt seem like it was in the middle. Armed with the knowledge that r10 and r11 controlled location I adjust untill it seemed like the middle. 
+```asm
+	clr		R10							; used to move the cursor around
+	clr		R11
+
+	mov.w	#20, R10
+	mov.w	#46, R11
+```
