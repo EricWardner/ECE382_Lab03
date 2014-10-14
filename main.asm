@@ -57,6 +57,10 @@ main:
 	mov.w	#46, R11
 	mov.w	#8,	r8
 
+	push	R8
+	push	R11
+	push	R10
+
 while1:
 	bit.b	#8, &P2IN					; bit 3 of P1IN set?
 	jnz 	while1						; Yes, branch back and wait
@@ -80,8 +84,11 @@ while0:
 
 	dec.b	R8
 	tst		r8
-	jz		while1
-	jmp		while0
+	jnz		while0
+	pop		R10
+	pop		R11
+	pop		R8
+	jmp		while1
 ;	jmp		while1
 
 ;-------------------------------------------------------------------------------
