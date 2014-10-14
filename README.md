@@ -313,7 +313,7 @@ delayNokiaResetHigh:
 It looks like it counts down from 0xFFFF
 
 ###XOR picture
-![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/bitblock.bmp)
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/bitblock.bmp)
 
 ###Functionality Struggles/Debugging
 #####B-Functionailty
