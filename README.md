@@ -312,6 +312,21 @@ delayNokiaResetHigh:
 ```
 It looks like it counts down from 0xFFFF
 
+######Line 66
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114007.jpg)
+
+######Line 276
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114046.jpg)
+
+######Line 288
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114119.jpg)
+
+######Line 294
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114152.jpg)
+
+######Reset
+![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114217.jpg)
+
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/bitblock.bmp)
 
