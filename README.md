@@ -312,6 +312,9 @@ delayNokiaResetHigh:
 ```
 It looks like it counts down from 0xFFFF
 
+####Waveforms
+The following waveforms were taken from the given code.
+
 ######Line 66
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/Pictures/IMG_20141014_114007.jpg)
 
