@@ -218,6 +218,8 @@ Voltage follower : ON</td>
 </tr>
 </tbody>
 </table>
+##Lab Data
+
 When SW3 is detected as being pressed and released (lines 56-62), the MSP430 generates 4 packets of data that are sent to the Nokia 1202 display, causing a vertical bar to be drawn. Complete the following table by finding the 4 calls to writeNokiaByte that generate these packets. In addition, scan the nearby code to determine the parameters being passed into this subroutine. Finally, write a brief description of what is trying to be accomplished by each call to writeNokiaByte.</p>
 <table class="table table-striped table-bordered">
 <thead>
