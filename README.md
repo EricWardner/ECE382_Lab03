@@ -307,12 +307,118 @@ I began with the given code that bade the lines appear on the screen. Looking at
 	mov		#0xFF, R13
 	call	#writeNokiaByte
 ```
-Next I attempted to make the 8 pixel block appear in the middle of the screen
-To accomplish this I inspected the set address function and realized that it got its location from r10 and r11. I replaced the initial clr r10 and clr r11 commands with a mov and knowing the display was 72 rows (pixel) x 96 columns (pixel) i set r10 and r11 to 36 and 48 respectively. When tested, I got a block in a different plce but it didnt seem like it was in the middle. Armed with the knowledge that r10 and r11 controlled location I adjust untill it seemed like the middle. 
+Next I attempted to make the 8 pixel block appear in the middle of the screen To accomplish this I inspected the set address function and realized that it got its location from r10 and r11. I replaced the initial clr r10 and clr r11 commands with a mov and knowing the display was 72 rows (pixel) x 96 columns (pixel) I set r10 and r11 to 36 and 48 respectively. When tested, I got a block in a different place but it didn’t seem like it was in the middle. Armed with the knowledge that r10 and r11 controlled location I adjust until it seemed like the middle. 
 ```asm
 	clr		R10							; used to move the cursor around
 	clr		R11
 
 	mov.w	#20, R10
 	mov.w	#46, R11
+```
+The next step was getting 8 of those 1 pixel wide blocks to appear in succession. 
+In the main function I saw the inc r10 and inc r11 commands. Knowing those registers represented the location the block would be written and know I only wanted to change the column location I took out the inc r11 command and looped the main 8 times. This sort of worked the only problem was the first "test block still showed up at (0,0). I swapped the "set address chunk with the write byte chunk and it seemed to work! The last thing I had to change was requiring a button press for it to appear. to fix this I made the program immediately jump to "while0"
+
+Sorry I dont have code, it is in my commit history but I forgot to add it to the readme before I went on to A-functionality. 
+
+#####A-Functionality
+
+```asm
+	mov.w	#20, R10
+	mov.w	#46, R11
+	mov.w	#8,	r8
+
+	push	R8
+	push	R11
+	push	R10
+
+	jmp		while0;
+
+while1:
+;	bit.b	#8, &P2IN					; bit 3 of P1IN set?
+;	jnz 	while1						; Yes, branch back and wait
+
+	bit.b	#2,	&P2IN
+	jz		right
+	bit.b	#4,	&P2IN
+	jz		left
+	bit.b	#32,&P2IN
+	jz		up
+	bit.b	#16,&P2IN
+	jz		down
+
+	jmp		while1
+
+right:
+	inc		R11
+	push	r10
+	push	r11
+	call	#clearDisplay
+	pop		r11
+	pop		r10
+	push	r8
+	push	r11
+	push	r10
+	jmp		while0
+
+left:
+	dec		R11
+	push	r10
+	push	r11
+	call	#clearDisplay
+	pop		r11
+	pop		r10
+	push	r8
+	push	r11
+	push	r10
+	jmp		while0
+
+up:
+	dec		R10
+	push	r10
+	push	r11
+	call	#clearDisplay
+	pop		r11
+	pop		r10
+	push	r8
+	push	r11
+	push	r10
+	jmp		while0
+
+down:
+	inc		R10
+	push	r10
+	push	r11
+	call	#clearDisplay
+	pop		r11
+	pop		r10
+	push	r8
+	push	r11
+	push	r10
+	jmp		while0
+
+while0:
+
+	bit.b	#8, &P2IN					; bit 3 of P1IN clear?
+	jz		while0						; Yes, branch back and wait
+
+;	inc		R10							; since rows are 8 times bigger than columns
+	and.w	#0x07, R10					; wrap over the row mod 8
+	inc		R11							; just let the columm overflow after 92 buttons
+	mov		R10, R12					; increment the row
+	mov		R11, R13					; and column of the next beam
+	call	#setAddress					; we draw
+
+	mov		#NOKIA_DATA, R12			; For testing just draw an 8 pixel high
+;	mov		#0xE7, R13					; beam with a 2 pixel hole in the center
+	mov		#0xFF, R13
+	call	#writeNokiaByte
+
+	dec.b	R8
+	tst		r8
+	jnz		while0
+	pop		R10
+	pop		R11
+	pop		R8
+	jmp		while1
+;	jmp		while1
 ```
