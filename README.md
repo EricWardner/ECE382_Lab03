@@ -289,6 +289,22 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 </tr>
 </tbody>
 </table>
+###How many Counts?
+######Question
+How many counts does the firmware loop count down from? Using the delay you just measured and the number of counts, calculate the amount of time each iteration of the delay loop consumes.
+
+######Answer
 
 ###XOR picture
 ![alt text](https://raw.githubusercontent.com/EricWardner/ECE382_Lab03/master/bitblock.bmp)
+
+###Functionality Struggles
+#####B-Functionailty
+I began with the given code that bade the lines appear on the screen. Looking at the main I saw, with the given comments, that the E7 meant an 8 pixel block with a 2 pixel hole in the middle. This makes sense as 0xE7 in binary is 11100111. Following this logic I thought 0xFF might mean a full 8 pixel block because is binary it is 11111111. I built and tested and a full 8 pixel block appeared! Small success!
+```asm
+	mov		#NOKIA_DATA, R12			; For testing just draw an 8 pixel high
+;	mov		#0xE7, R13					; beam with a 2 pixel hole in the center
+	mov		#0xFF, R13
+	call	#writeNokiaByte
+```
+Next I attemptedto make the 8 pixel block appear in the middle of the screen
